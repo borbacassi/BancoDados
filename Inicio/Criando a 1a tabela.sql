@@ -27,7 +27,6 @@ values
 -- PK aplicada a coluna cod_disciplina
 -- FK aplicada a coluna cod_dept
 -- NN aplicada  a coluna cod_dept
-
 create table tb_disciplina(
 cod_disciplina	integer,
 cod_dept 		integer constraint nn_tb_disc_cod_dept not null,
@@ -36,4 +35,27 @@ credito 		integer,
 constraint pk_tb_disc_cod_disc primary key(cod_disciplina),
 constraint fk_tb_disc_cod_dept foreign key(cod_dept)
 	references tb_dept(cod_dept)
+	)
+
+create table tb_curso(
+cod_curso 			integer,
+nm_curso 			varchar(40),
+constraint pk_tb_curso_cod_curso primary key(cod_curso)
 );
+
+create table tb_aluno(
+--restrições
+--PK ligada a coluna cod_aluno
+--FK aplicada a coluna cod_curso
+--NN aplicada a coluna cod_curso
+cod_aluno 	integer,
+nm_aluno 	varchar(60),
+cod_curso 	integer constraint nn_tb_aluno_cod_curso not null,
+dt_nascimento 	date,
+constraint pk_tb_aluno_cod_curso primary key(cod_aluno),
+constraint fk_tb_aluno_cod_curso foreign key(cod_curso)
+	references tb_curso(cod_curso)
+	);
+)
+
+
