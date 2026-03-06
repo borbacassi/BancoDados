@@ -91,5 +91,43 @@ constraint fk_tb_pr_liberadora foreign key(cod_dc_liberadora)
 	references tb_disciplina(cod_disciplina)
 	);
 
+)
+select *
+from tb_dept;
 
+select *
+from tb_curso;
 
+insert into tb_curso(cod_curso,nm_curso)
+values
+(10, 'Engenharia de software'),
+(11,'Ciência da computação'),
+(12, 'Sistemas de informação');
+
+select *
+from tb_disciplina;
+
+insert into tb_disciplina(cod_disciplina,cod_dept,nm_disciplina,credito)
+
+values
+(1,1, 'Banco de dados I',80),
+(2,1,'Banco de dados II',80),
+(3,2,'Gestão de projetos',40);
+
+select *
+from tb_aluno;
+
+insert into tb_aluno(cod_aluno,nm_aluno,cod_curso,dt_nascimento)
+
+values
+(100, 'Isadora Chieregato',10,'12/12/2006'),
+(110,'Victor Santucci',10,'09/08/2006'),
+(120,'Igor de Souza Gonçalves',10,'17/01/2005');
+
+select *
+from tb_pre_requisito;
+
+insert into tb_pre_requisito(cod_dc_liberada,cod_dc_liberadora)
+
+values 
+(2,1);
