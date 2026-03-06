@@ -58,4 +58,38 @@ constraint fk_tb_aluno_cod_curso foreign key(cod_curso)
 	);
 )
 
+create table tb_discplina_aluno(
+--restrições
+--PK Composta aplicadas as colunas cod_discplina e cod_curso
+--FK aplicada a coluna cod_disciplina,
+--FK aplicada a cod_curso
+cod_disciplina integer,
+cod_curso integer,
+constraint pk_tb_dc_cod_dc_cod_curso primary key(cod_disciplina,cod_curso),
+constraint fk_tb_dc_cod_dc foreign key(cod_disciplina)
+	references tb_disciplina(cod_disciplina),
+constraint fk_tb_dc_cod_curso foreign key(cod_curso)
+	references tb_curso(cod_curso)
+	);
+
+--criando a tb_pre_requisito
+--	restrições:
+--PK composta aplicada as colunas cod_disciplina_liberada 
+-- e cod_disciplina_liberadora
+--FK  aplicada a coluna cod_disciplina_liberada
+--FK aplicada a coluna cod_disciplina_liberadora
+create table tb_pre_requisito(
+cod_dc_liberada integer,
+cod_dc_liberadora integer,
+constraint pk_tb_pr_liberada_liberadora
+	primary key(cod_dc_liberada,cod_dc_liberadora),
+	
+constraint fk_tb_pr_liberada foreign key(cod_dc_liberada)
+	references tb_disciplina(cod_disciplina),
+
+constraint fk_tb_pr_liberadora foreign key(cod_dc_liberadora)
+	references tb_disciplina(cod_disciplina)
+	);
+
+)
 
