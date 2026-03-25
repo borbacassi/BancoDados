@@ -1,4 +1,4 @@
---É preciso obter mais dados da empresa, código está incompleto
+--criação de tabelas faltando, código está incompleto
 
 Select e.nome || 'trabalha para ' || g.nome "Quem trabalha para quem?" 
 From tb_empregados e
